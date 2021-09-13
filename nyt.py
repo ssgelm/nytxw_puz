@@ -196,7 +196,6 @@ def main():
             print(f"ERROR: Unknown browser '{browser}', please select one of:")
             for key in get_browsers():
                 print(f"  {key}")
-        exit(1)
     else:
         browser = pick_browser()
         url = input("Enter the NY Times crossword URL: ")
