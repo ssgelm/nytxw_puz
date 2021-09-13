@@ -150,8 +150,9 @@ def data_to_puz(puzzle):
     p = puz.Puzzle()
     data = puzzle['gamePageData']
     # Basic header
-    p.title = 'New York Times Crossword'
+    p.title = f'New York Times {data["meta"]["publicationDate"]} - {data["meta"]["title"]}'
     p.author = ", ".join(data["meta"]["constructors"])
+    p.copyright = data["meta"]["copyright"] + ", The New York Times"
 
     # Pull out the size of the puzzle
     p.height = data["dimensions"]["rowCount"]
