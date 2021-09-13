@@ -185,6 +185,12 @@ def data_to_puz(puzzle):
             else:
                 rebus.add_rebus(None)
 
+    # Now process for circle-in-squares
+    if any([x['type'] == 2 for x in data['cells']]):
+        markupHelper = p.markup()
+        markupHelper.markup = b''.join([puz.GridMarkup.Circled.to_bytes(1, 'big') if x['type'] == 2 else puz.GridMarkup.Default.to_bytes(1, 'big') for x in data['cells']])
+        markupHelper.save()
+
     # All done
     return p
 
